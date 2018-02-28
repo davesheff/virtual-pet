@@ -70,4 +70,24 @@ describe('constructor', () => {
     expect(Fido.checkUp()).toEqual('I need a walk');
   });
 
+  test ('checkUp returns "I am hungry" if hunger is 5 or more', () => {
+    const Fido = new Pet('Fido')
+    Fido.hunger = 7
+    expect(Fido.checkUp()).toEqual('I am hungry');
+  });
+
+  test ('checkUp returns "I am hungry AND I need a walk" if fitness is 3 or less and hunger is 5 more', () => {
+    const Fido = new Pet('Fido')
+    Fido.fitness = 2
+    Fido.hunger = 7
+    expect(Fido.checkUp()).toEqual('I am hungry AND I need a walk');
+  });
+
+  test ('checkUp returns "I feel great!" if fitness is more than 3 and hunger is less than 5', () => {
+    const Fido = new Pet('Fido')
+    Fido.fitness = 7
+    Fido.hunger = 4
+    expect(Fido.checkUp()).toEqual('I feel great!');
+  });
+
 });
