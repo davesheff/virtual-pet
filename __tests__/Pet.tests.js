@@ -93,7 +93,7 @@ describe('constructor', () => {
   test ('isAlive returns false if fitness is 0', () => {
     const Fido = new Pet('Fido');
     Fido.fitness = 0;
-    expect(Fido.isAlive()).toEqual(false);
+    expect(Fido.isAlive).toEqual(false);
   });
 
   /*
