@@ -93,20 +93,19 @@ describe('constructor', () => {
   test ('isAlive returns false if fitness is 0', () => {
     const Fido = new Pet('Fido');
     Fido.fitness = 0;
-    expect(Fido.isAlive).toEqual(false);
+    expect(Fido.isAlive).toBe(false);
   });
 
-  /*
   test ('isAlive returns false if hunger is 10 or more', () => {
     const Fido = new Pet('Fido');
     Fido.hunger = 10;
-    expect(Fido.isAlive()).toEqual(false);
+    expect(Fido.isAlive).toBe(false);
   });
 
   test ('isAlive returns false if age is 30 or more', () => {
     const Fido = new Pet('Fido');
     Fido.age = 30;
-    expect(Fido.isAlive()).toEqual(false);
+    expect(Fido.isAlive).toBe(false);
   });
 
   test ('isAlive returns true if age is under 30, hunger is less than 10 and fitness is above 0', () => {
@@ -114,8 +113,6 @@ describe('constructor', () => {
     Fido.fitness = 6;
     Fido.hunger = 8;
     Fido.age = 15;
-    expect(Fido.isAlive()).toEqual(false);
+    expect(Fido.isAlive).toBe(true);
   });
-
-  */
 });
