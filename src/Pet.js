@@ -8,6 +8,12 @@ function Pet (name) {
 };
 
 Pet.prototype = {
+  get isAlive() {
+    return this.age < 30 && this.hunger < 10 && this.fitness < 0;
+  }
+};
+
+Pet.prototype = {
   growUp: function () {
     this.age++;
     this.hunger += 5;
@@ -29,14 +35,14 @@ Pet.prototype = {
   },
   checkUp: function () {
     if (this.fitness < 4 && this.hunger > 4) {
-      return 'I am hungry AND I need a walk'
+      return 'I am hungry AND I need a walk';
     } else if (this.fitness < 4) {
-      return 'I need a walk'
+      return 'I need a walk';
     } else if (this.hunger > 4) {
-      return 'I am hungry'
+      return 'I am hungry';
     } else { 
-      return 'I feel great!'
-    }
+      return 'I feel great!';
+    };
   }
 }
 
