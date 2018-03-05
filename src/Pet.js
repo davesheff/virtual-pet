@@ -13,26 +13,35 @@ Pet.prototype = {
   },
 
   growUp: function () {
+    if (!this.isAlive) {
+      throw new Error ('Your pet is no longer alive :(');
+    };
     this.age++;
     this.hunger += 5;
     this.fitness -= 3;
   },
   walk: function () {
-    if (this.fitness >= 7) {
+    if (!this.isAlive) {
+      throw new Error ('Your pet is no longer alive :(');
+    } else if (this.fitness >= 7) {
       this.fitness = MAXIMUM_FITNESS
     } else { 
       this.fitness += 4;
     }
   },
   feed: function () {
-    if (this.hunger < 3) {
+    if (!this.isAlive) {
+      throw new Error ('Your pet is no longer alive :(');
+    } else if (this.hunger < 3) {
       this.hunger = 0;
     } else {
       this.hunger -= 3;
     }
   },
   checkUp: function () {
-    if (this.fitness < 4 && this.hunger > 4) {
+    if (!this.isAlive) {
+      return 'Your pet is no longer alive :(';
+    } else if (this.fitness < 4 && this.hunger > 4) {
       return 'I am hungry AND I need a walk';
     } else if (this.fitness < 4) {
       return 'I need a walk';

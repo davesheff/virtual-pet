@@ -115,4 +115,19 @@ describe('constructor', () => {
     Fido.age = 15;
     expect(Fido.isAlive).toBe(true);
   });
+
+  test ('checkUp returns "Your pet is no longer alive :(" if the pet is not alive', () => {
+    const Fido = new Pet('Fido');
+    Fido.fitness = 0;
+    expect(Fido.checkUp()).toEqual('Your pet is no longer alive :(');
+  });
+
+  test('throws an error if the pet is not alive', () => {
+    const pet = new Pet('Fido');
+    pet.age = 30;
+    expect(pet.feed).toThrow('Your pet is no longer alive :(');
+    expect(pet.walk).toThrow('Your pet is no longer alive :(');
+    expect(pet.growUp).toThrow('Your pet is no longer alive :(');
+  });
+     
 });
